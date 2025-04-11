@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 32 98% 50%;
+    --primary-foreground: 32 98% 10%;
+    --secondary: 32 98% 95%;
+    --secondary-foreground: 32 98% 30%;
+    --muted: 32 10% 96%;
+    --muted-foreground: 32 5% 40%;
+    --accent: 32 98% 95%;
+    --accent-foreground: 32 98% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 32 10% 90%;
+    --input: 32 10% 90%;
+    --ring: 32 98% 50%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 32 98% 50%;
+    --primary-foreground: 32 98% 10%;
+    --secondary: 32 30% 15%;
+    --secondary-foreground: 32 98% 90%;
+    --muted: 32 30% 15%;
+    --muted-foreground: 32 10% 70%;
+    --accent: 32 30% 15%;
+    --accent-foreground: 32 98% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 32 30% 20%;
+    --input: 32 30% 20%;
+    --ring: 32 98% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.curved-decoration {
+  position: relative;
+}
+
+.curved-decoration::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  border-top: 3px solid hsl(var(--primary));
+  border-right: 3px solid transparent;
+  border-radius: 100%;
+  transform: rotate(10deg);
+  right: -20px;
+  top: 10px;
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05));
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
